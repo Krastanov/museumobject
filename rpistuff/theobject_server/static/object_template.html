@@ -1,0 +1,77 @@
+<div class="col-sm-6 col-md-4 col-lg-4" id="<%= mac %>">
+<div class="panel panel-default">
+<div class="panel-heading">
+    <span class="panel-title">Object <%= mac %></span> <a href="#body<%= mac %>" data-toggle="collapse">controls</a>
+</div>
+<div class="panel-body collapse" id="body<%= mac %>">
+  <form id="form<%= mac %>" data-mac="<%= mac %>" class="form-horizontal object-form">
+  <div class="form-group">
+    <label for="0i" class="col-sm-4 control-label">Brightness</label>
+    <div class="col-sm-8"><input type="range" min="0" max="255" value="1" name="0i" onchange="sendLEDcommand(this)" oninput="globalThrottle(sendLEDcommand, [this])"/></div>
+  </div>
+  <div class="form-group">
+    <label for="1r" class="col-sm-4 control-label">Red</label>
+    <div class="col-sm-8"><input type="range" min="0" max="255" value="1" name="1r" onchange="sendLEDcommand(this)" oninput="globalThrottle(sendLEDcommand, [this])"/></div>
+  </div>
+  <div class="form-group">
+    <label for="2g" class="col-sm-4 control-label">Green</label>
+    <div class="col-sm-8"><input type="range" min="0" max="255" value="1" name="2g" onchange="sendLEDcommand(this)" oninput="globalThrottle(sendLEDcommand, [this])"/></div>
+  </div>
+  <div class="form-group">
+    <label for="3b" class="col-sm-4 control-label">Blue</label>
+    <div class="col-sm-8"><input type="range" min="0" max="255" value="1" name="3b" onchange="sendLEDcommand(this)" oninput="globalThrottle(sendLEDcommand, [this])"/></div>
+  </div>
+  <div class="form-group">
+    <label for="4w" class="col-sm-4 control-label">White</label>
+    <div class="col-sm-8"><input type="range" min="0" max="255" value="1" name="4w" onchange="sendLEDcommand(this)" oninput="globalThrottle(sendLEDcommand, [this])"/></div>
+  </div>
+</form>
+<div class="col-sm-12">
+<div class="col-xs-4 text-right">
+</div>
+<div class="col-xs-8">
+<div class="btn-group-vertical" role="group">
+  <a ic-get-from="http://<%= ip %>/pulseled" ic-target="#<%= mac %>pulseled" class="btn btn-default">Pulse <span id="<%= mac %>pulseled" class="badge"></span></a>
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="col-xs-4 text-right">
+<strong>Motion Response</strong>
+</div>
+<div class="col-xs-8">
+<div class="btn-group-vertical" role="group">
+  <a ic-get-from="http://<%= ip %>/motionled" ic-target="#<%= mac %>motionled" class="btn btn-default">Motion Light <span id="<%= mac %>motionled" class="badge"></span></a>
+  <a ic-get-from="http://<%= ip %>/shakeled" ic-target="#<%= mac %>shakeled" class="btn btn-default">Shake Light <span id="<%= mac %>shakeled" class="badge"></span></a>
+  <a ic-get-from="http://<%= ip %>/shakepulseled" ic-target="#<%= mac %>shakepulseled" class="btn btn-default">Shake to Pulse <span id="<%= mac %>shakepulseled" class="badge"></span></a>
+  <a ic-get-from="http://<%= ip %>/repshake" ic-target="#<%= mac %>repshake" class="btn btn-default">Report Shake <span id="<%= mac %>repshake" class="badge"></span></a>
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="col-xs-4 text-right">
+<strong>Distance to Hub</strong>
+</div>
+<div class="col-xs-8">
+<div class="btn-group-vertical" role="group">
+  <a ic-get-from="http://<%= ip %>/distled" ic-target="#<%= mac %>distled" class="btn btn-default">Distance Beacon <span id="<%= mac %>distled" class="badge"></span></a>
+  <a ic-get-from="http://<%= ip %>/repdist" ic-target="#<%= mac %>repdist" class="btn btn-default">Report Distance <span id="<%= mac %>repdist" class="badge"></span></a>
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+<div class="col-xs-4 text-right">
+<strong>Global Location</strong>
+</div>
+<div class="col-xs-8">
+  Requires multiple hubs (Bluetooth Low Energy Mesh network or a WiFi network) to be deployed.
+</div>
+</div>
+</div>
+<div class="panel-footer">
+  <span><strong>ip:</strong> <%= ip %></span>
+  <span><strong>motion:</strong> <span ic-sse-src="/reported/<%= mac %>/motion"></span></span>
+  <span><strong>distance:</strong> <span ic-sse-src="/reported/<%= mac %>/distance"></span></span>
+</div>
+</div>
+</div>

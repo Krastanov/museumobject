@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/bootstrap.min.css">
+<link rel="stylesheet" href="static/style.css">
+<script src="static/jquery.min.js"></script>
+<script src="static/underscore.min.js"></script>
+<script src="static/intercooler.min.js"></script>
+<script src="static/bootstrap.min.js"></script>
+<script> //Settings
+$(document).on("beforeAjaxSend.ic", function (evt, settings) {
+  delete settings.headers['X-IC-Request'];
+  delete settings.headers['X-HTTP-Method-Override'];
+});
+$.ajaxSetup({
+  timeout:1000
+});
+</script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        The Object Admin Control Page
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row" id="objects">
+</div>
+</div>
+
+<script src="static/ui.js"></script>
+</body>
+</html>

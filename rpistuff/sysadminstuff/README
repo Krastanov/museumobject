@@ -1,0 +1,5 @@
+Hotspot configuration from https://frillip.com/using-your-raspberry-pi-3-as-a-wifi-access-point-with-hostapd/
+
+TODO:
+- any ip related calls in the javascript should be moved to the cherrypy server
+- make a "control all" panel (with a filter)
