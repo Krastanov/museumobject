@@ -1,0 +1,3 @@
+TODO:
+- any ip related calls in the javascript should be moved to the cherrypy server
+- make a "control all" panel (with a filter)

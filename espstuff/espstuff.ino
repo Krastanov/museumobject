@@ -1,3 +1,6 @@
+// This sketch connects to the main hub, registers the device,
+// and starts listening for http commands from the hub.
+
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <Adafruit_NeoPixel.h>
